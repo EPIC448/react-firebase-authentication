@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component} from 'react';
 import { BrowserRouter as Router } from 'react-router-dom'
 
 
@@ -16,20 +16,33 @@ import * as ROUTES from '../../constants/routes';
 
 
 
-const App = () => (
-    <Router>
-        <div>
-        <Navigation/>
-            <hr />
-            <Router exact path = {ROUTES.LANDING} component ={LandingPage} />
-            <Router exact path = {ROUTES.SIGN_UP} component ={SignUpPage} />
-            <Router exact path = {ROUTES.SIGN_IN} component ={SignInPage} />
-            <Router exact path = {ROUTES.PASSWORD_FORGET} component ={PasswordForgetPage} />
-            <Router exact path = {ROUTES.HOME} component ={HomePage} />
-            <Router exact path = {ROUTES.ACCOUNT} component ={AccountPage} />
-            <Router exact path = {ROUTES.ADMIN} component ={AdminPage} />
+class App extends Component {
+    constructor(props) {
+        super(props);
 
-        </div>
-    </Router>
-)
+        this.state = {
+            authUser: null,
+        };
+    }
+
+    render() {
+        return (
+        <Router>
+            <div>
+                <Navigation />
+                <hr />
+                <Router exact path={ROUTES.LANDING} component={LandingPage} />
+                <Router exact path={ROUTES.SIGN_UP} component={SignUpPage} />
+                <Router exact path={ROUTES.SIGN_IN} component={SignInPage} />
+                <Router exact path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
+                <Router exact path={ROUTES.HOME} component={HomePage} />
+                <Router exact path={ROUTES.ACCOUNT} component={AccountPage} />
+                <Router exact path={ROUTES.ADMIN} component={AdminPage} />
+
+            </div>
+            </Router>
+        )
+    }
+
+}
 export default App;
