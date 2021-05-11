@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom'
-import {withFirebase} from '../Firebase'
 
 import Navigation from '../Navigation';
 import LandingPage from '../Landing';
@@ -35,4 +34,4 @@ const App = () => (
         
 
 )
-export default App;
+export default withAuthentication(App);

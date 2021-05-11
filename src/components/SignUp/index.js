@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { compose} from 'recompose'
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
@@ -93,7 +92,7 @@ class SignUpFormBase extends Component {
                 placeholder="Confirm Password"
                 />
         
-                <button disabled={this.isInvalid} type="submit"> Sign up</button>
+                <button disabled={this.isInvalid} type="submit"> Sign up </button>
 
                 {error && <p>{error.message }</p>}
             </form>
@@ -108,7 +107,7 @@ const SignUpLink = () => (
 )
 
 
-const SignUpForm = (withFirebase,(SignUpFormBase))
+const SignUpForm = withRouter(withFirebase,(SignUpFormBase))
 
 export default SignUpPage;
 
